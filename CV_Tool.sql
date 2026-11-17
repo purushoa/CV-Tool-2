@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS CV_Tool;
+USE CV_Tool;
+CREATE TABLE users (
+user_id INT PRIMARY KEY,
+username VARCHAR(50) NOT NULL UNIQUE,
+email VARCHAR(100) NOT NULL UNIQUE,
+password_hash varchar(150) NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+
+CREATE TABLE user_profiles (
+profile_id INT AUTO_INCREMENT PRIMARY KEY,
+user_id INT NOT NULL,
+full_name VARCHAR(100) NOT NULL,
+contact_email VARCHAR(100) NOT NULL,
+phone VARCHAR(100),
+address VARCHAR(250),
+phone_url VARCHAR(250),
+professional_summary TEXT,
+FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
