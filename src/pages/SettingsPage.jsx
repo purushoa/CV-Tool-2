@@ -1,0 +1,8 @@
+import {blankCV,sampleCV,templates,steps} from '../data';
+import React,{createContext,useContext,useEffect,useMemo,useRef,useState} from 'react';
+import{createRoot}from'react-dom/client';
+import{BrowserRouter,Routes,Route,Link,NavLink,useNavigate,useParams,Navigate}from'react-router-dom';
+import{ArrowRight,ArrowLeft,Check,CheckCircle2,ChevronDown,ChevronRight,Copy,Download,FileText,Home,UserRound,Settings,Plus,Trash2,Eye,Edit3,Search,Menu,X,ShieldCheck,Star,LayoutTemplate,LogOut,Mail,Phone,MapPin,Globe,UploadCloud,Save,Palette,BriefcaseBusiness,GraduationCap,GripVertical,Lock,EyeOff,Clock,Monitor,Smartphone,PenLine, Sparkles}from'lucide-react';
+import {useStore} from '../store/CVStore';
+import {Logo,Header,MiniResume,Footer,Sidebar,Workspace,CVGrid,Resume,PreviewPanel,TextField,TextArea,TagInput} from '../components/Shared';
+export default function SettingsPage(){const{setToast}=useStore();const[compact,setCompact]=useState(false);return <Workspace title="Settings" subtitle="Customize your CV Tool workspace."><div className="panel max-w-2xl space-y-6 p-7"><div><h2 className="text-lg font-bold">Preferences</h2><p className="mt-1 text-sm text-slate-500">Settings are stored in your browser for this demo.</p></div><label className="flex items-center justify-between gap-4"><div><b className="text-sm">Compact workspace</b><p className="mt-1 text-sm text-slate-500">Preference placeholder for future integration.</p></div><input type="checkbox" checked={compact} onChange={e=>setCompact(e.target.checked)}/></label><button className="btn-primary" onClick={()=>setToast('Preferences saved for this session')}><Save size={17}/> Save preferences</button></div></Workspace>}

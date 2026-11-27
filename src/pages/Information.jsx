@@ -1,0 +1,8 @@
+import {blankCV,sampleCV,templates,steps} from '../data';
+import React,{createContext,useContext,useEffect,useMemo,useRef,useState} from 'react';
+import{createRoot}from'react-dom/client';
+import{BrowserRouter,Routes,Route,Link,NavLink,useNavigate,useParams,Navigate}from'react-router-dom';
+import{ArrowRight,ArrowLeft,Check,CheckCircle2,ChevronDown,ChevronRight,Copy,Download,FileText,Home,UserRound,Settings,Plus,Trash2,Eye,Edit3,Search,Menu,X,ShieldCheck,Star,LayoutTemplate,LogOut,Mail,Phone,MapPin,Globe,UploadCloud,Save,Palette,BriefcaseBusiness,GraduationCap,GripVertical,Lock,EyeOff,Clock,Monitor,Smartphone,PenLine, Sparkles}from'lucide-react';
+import {useStore} from '../store/CVStore';
+import {Logo,Header,MiniResume,Footer,Sidebar,Workspace,CVGrid,Resume,PreviewPanel,TextField,TextArea,TagInput} from '../components/Shared';
+export default function Information(){const{account,setAccount,setToast}=useStore();const[name,setName]=useState(account?.name||'');const[email,setEmail]=useState(account?.email||'');return <Workspace title="My Information" subtitle="Manage your profile details for your CV workspace."><form className="panel max-w-2xl space-y-5 p-7" onSubmit={e=>{e.preventDefault();setAccount({name,email});setToast('Profile updated locally')}}><div><label className="label">Full name</label><input required className="field" value={name} onChange={e=>setName(e.target.value)}/></div><div><label className="label">Email</label><input required type="email" className="field" value={email} onChange={e=>setEmail(e.target.value)}/></div><p className="text-sm text-slate-500">You can set CV-specific contact information in the CV editor.</p><button className="btn-primary"><Save size={17}/> Save changes</button></form></Workspace>}

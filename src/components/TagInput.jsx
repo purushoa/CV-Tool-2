@@ -1,0 +1,7 @@
+import {blankCV,sampleCV,templates,steps} from '../data';
+import React,{createContext,useContext,useEffect,useMemo,useRef,useState} from 'react';
+import{createRoot}from'react-dom/client';
+import{BrowserRouter,Routes,Route,Link,NavLink,useNavigate,useParams,Navigate}from'react-router-dom';
+import{ArrowRight,ArrowLeft,Check,CheckCircle2,ChevronDown,ChevronRight,Copy,Download,FileText,Home,UserRound,Settings,Plus,Trash2,Eye,Edit3,Search,Menu,X,ShieldCheck,Star,LayoutTemplate,LogOut,Mail,Phone,MapPin,Globe,UploadCloud,Save,Palette,BriefcaseBusiness,GraduationCap,GripVertical,Lock,EyeOff,Clock,Monitor,Smartphone,PenLine, Sparkles}from'lucide-react';
+import {useStore} from '../store/CVStore';
+export function TagInput({items,onChange,placeholder}){const[value,setValue]=useState('');const add=()=>{const item=value.trim();if(item&&!items.some(x=>x.toLowerCase()===item.toLowerCase()))onChange([...items,item]);setValue('')};return <div><div className="flex gap-2"><input className="field" value={value} placeholder={placeholder} onChange={e=>setValue(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'||e.key===','){e.preventDefault();add()}}}/><button type="button" className="btn-outline shrink-0" onClick={add}><Plus size={17}/> Add</button></div><div className="mt-3 flex flex-wrap gap-2">{items.map(x=><span key={x} className="flex items-center gap-2 rounded-lg bg-blue-50 px-3 py-2 text-sm font-medium text-blue-700">{x}<button type="button" aria-label={`Remove ${x}`} onClick={()=>onChange(items.filter(y=>y!==x))}><X size={14}/></button></span>)}</div></div>}
