@@ -1,19 +1,1189 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-@tailwind base;@tailwind components;@tailwind utilities;
-:root{font-family:Inter,system-ui,sans-serif;color:#17243d;background:#f8faff;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}button{cursor:pointer}input,textarea,select{outline:none}input:focus,textarea:focus,select:focus{border-color:#2563eb!important;box-shadow:0 0 0 3px #dbeafe}button:disabled{opacity:.5;cursor:not-allowed}.field{@apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 transition placeholder:text-slate-400}.label{@apply mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-500}.btn-primary{@apply inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white shadow-sm transition hover:bg-blue-700}.btn-outline{@apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700}.panel{@apply rounded-2xl border border-slate-100 bg-white shadow-soft}.resume-sheet{width:794px;min-height:1123px;background:white;transform-origin:top left;color:#18233a;box-shadow:0 15px 40px #1a305020}.resume-sheet h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;margin:20px 0 8px;padding-bottom:6px;border-bottom:1px solid #d7dfed}.resume-sheet p,.resume-sheet li{font-size:12px;line-height:1.6}.resume-sheet .resume-title{font-size:31px;line-height:1.2;font-weight:800}.resume-sheet .resume-meta{font-size:11px}.resume-sheet .resume-entry{margin-bottom:12px}.resume-sheet .resume-entry strong{font-size:12px}.resume-sheet .resume-entry small{font-size:10px;color:#64748b}.resume-sheet.classic{font-family:Georgia,serif}.resume-sheet.minimal h2{border-color:#111827;color:#111827}.resume-sheet.creative{border-top:13px solid #0f766e}.resume-sheet.creative h2{color:#0f766e}.resume-sheet.modern{border-top:13px solid #2563eb}.resume-sheet.modern h2{color:#1d4ed8}@media print{body{background:white}.no-print{display:none!important}}
 
-/* Prevent headings and CV entries from splitting awkwardly during PDF export. */
-.cv-pdf-export-host .resume-sheet{box-shadow:none!important;transform:none!important;}
-.cv-pdf-export-host .resume-entry,.cv-pdf-export-host header{break-inside:avoid;page-break-inside:avoid;}
-.cv-pdf-export-host .resume-sheet h2{break-after:avoid;page-break-after:avoid;}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* 13 CV template designs — scoped to printable resumes */
-.cv-template{--cv-accent:#2563eb;width:794px;min-height:1123px;background:#fff;color:#1e293b;box-sizing:border-box;overflow:hidden}
-.cv-layout-standard{padding:48px 54px}.cv-layout-sidebar{display:grid;grid-template-columns:245px 1fr;min-height:1123px}.cv-sidebar{background:var(--cv-accent);color:white;padding:44px 23px}.cv-main-content{padding:45px 35px}
-.cv-header{display:flex;align-items:center;gap:20px;margin-bottom:25px}.cv-full-name{font-size:34px;line-height:1.13;font-weight:800;letter-spacing:-.03em;color:var(--cv-accent)}.cv-contact-details{display:flex;flex-wrap:wrap;gap:5px 12px;margin-top:12px;font-size:10px;color:#64748b}.cv-section{margin-top:22px}.cv-section-heading{font-size:13px!important;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--cv-accent);border-bottom:1px solid #dce3eb;padding-bottom:7px;margin:0 0 12px!important}.cv-section p{font-size:11px;line-height:1.65;margin:4px 0}.cv-entry{margin:0 0 14px;break-inside:avoid}.cv-entry-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}.cv-entry-top strong{font-size:12px}.cv-entry-top small{font-size:10px;color:#64748b;white-space:nowrap}.cv-skill-tags{display:flex;flex-wrap:wrap;gap:7px}.cv-skill-tags span{font-size:10px;padding:5px 9px;background:#f1f5f9;border-radius:4px}.cv-profile-photo{height:88px;width:88px;object-fit:cover;border-radius:50%;flex-shrink:0}.cv-photo-placeholder{display:flex;align-items:center;justify-content:center;background:#e2e8f0;color:#475569;font-weight:800;font-size:22px}
-.cv-layout-sidebar .cv-header{display:block}.cv-layout-sidebar .cv-full-name{color:white;font-size:27px;margin-top:14px}.cv-layout-sidebar .cv-contact-details{display:block;color:#e2e8f0;overflow-wrap:anywhere}.cv-layout-sidebar .cv-contact-details span{display:block;margin-top:7px}.cv-layout-sidebar .cv-section-heading{color:white;border-color:#ffffff60}.cv-layout-sidebar .cv-skill-tags span{background:#ffffff24;color:white}.cv-layout-sidebar .cv-section p{color:white}
-.cv-modern{border-top:12px solid var(--cv-accent)}.cv-executive .cv-header{background:#eff3f9;padding:25px;margin:-48px -54px 26px}.cv-executive .cv-full-name{letter-spacing:.04em}.cv-skyline .cv-header{border-left:8px solid var(--cv-accent);padding-left:22px}.cv-skyline .cv-section-heading{border-bottom:2px solid var(--cv-accent)}
-.cv-classic .cv-header,.cv-heritage .cv-header{display:block;text-align:center}.cv-classic .cv-contact-details,.cv-heritage .cv-contact-details{justify-content:center}.cv-classic .cv-full-name{color:#24304d;font-weight:600}.cv-heritage .cv-full-name{color:#713f12;font-weight:500;letter-spacing:.07em}.cv-heritage .cv-section-heading{border-bottom:2px double #713f12}
-.cv-coral .cv-sidebar{background:#e11d48}.cv-coral .cv-section-heading{letter-spacing:.15em}.cv-slate .cv-sidebar{background:#334155}.cv-emerald .cv-sidebar{background:#047857}.cv-portrait .cv-header{flex-direction:column;text-align:center}.cv-portrait .cv-contact-details{justify-content:center}
-.cv-minimal .cv-section-heading,.cv-ats-essential .cv-section-heading,.cv-ats-pro .cv-section-heading{color:#111827;border-color:#9ca3af}.cv-minimal .cv-full-name,.cv-ats-essential .cv-full-name,.cv-ats-pro .cv-full-name{color:#111827}.cv-ats-essential .cv-header{border-bottom:2px solid #111827;padding-bottom:20px}.cv-ats-pro .cv-section-heading{border-bottom:2px solid #374151}.cv-ats-pro .cv-full-name{font-size:38px}
-@media print{.cv-template{box-shadow:none!important;break-inside:auto}.cv-entry,.cv-section-heading{break-inside:avoid}}
+
+/* =========================================
+   1. GLOBAL STYLES
+========================================= */
+
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #17243d;
+  background: #f8faff;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px #dbeafe;
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   2. FORM FIELDS AND BUTTONS
+========================================= */
+
+.field {
+  @apply w-full rounded-xl border border-slate-200
+  bg-white px-4 py-3 text-sm text-slate-800
+  transition placeholder:text-slate-400;
+}
+
+.label {
+  @apply mb-2 block text-xs font-semibold
+  uppercase tracking-wide text-slate-500;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center
+  gap-2 rounded-xl bg-blue-600 px-5 py-3
+  font-semibold text-white shadow-sm transition
+  hover:bg-blue-700;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center
+  gap-2 rounded-xl border border-slate-200
+  bg-white px-5 py-3 font-semibold text-slate-700
+  transition hover:border-blue-300
+  hover:text-blue-700;
+}
+
+.panel {
+  @apply rounded-2xl border border-slate-100
+  bg-white shadow-soft;
+}
+
+
+/* =========================================
+   3. ORIGINAL RESUME STYLES
+========================================= */
+
+.resume-sheet {
+  width: 794px;
+  min-height: 1123px;
+  background: white;
+  transform-origin: top left;
+  color: #18233a;
+  box-shadow: 0 15px 40px #1a305020;
+}
+
+.resume-sheet h2 {
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 20px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #d7dfed;
+}
+
+.resume-sheet p,
+.resume-sheet li {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.resume-sheet .resume-title {
+  font-size: 31px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.resume-sheet .resume-meta {
+  font-size: 11px;
+}
+
+.resume-sheet .resume-entry {
+  margin-bottom: 12px;
+}
+
+.resume-sheet .resume-entry strong {
+  font-size: 12px;
+}
+
+.resume-sheet .resume-entry small {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.resume-sheet.classic {
+  font-family: Georgia, serif;
+}
+
+.resume-sheet.minimal h2 {
+  border-color: #111827;
+  color: #111827;
+}
+
+.resume-sheet.creative {
+  border-top: 13px solid #0f766e;
+}
+
+.resume-sheet.creative h2 {
+  color: #0f766e;
+}
+
+.resume-sheet.modern {
+  border-top: 13px solid #2563eb;
+}
+
+.resume-sheet.modern h2 {
+  color: #1d4ed8;
+}
+
+
+/* =========================================
+   4. PDF EXPORT STYLES
+========================================= */
+
+.cv-pdf-export-host .resume-sheet {
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.cv-pdf-export-host .resume-entry,
+.cv-pdf-export-host header {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.cv-pdf-export-host .resume-sheet h2 {
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+
+/* =========================================
+   5. CV TEMPLATE BASE STYLES
+========================================= */
+
+.cv-template {
+  --cv-accent: #2563eb;
+  width: 794px;
+  min-height: 1123px;
+  background: #ffffff;
+  color: #1e293b;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cv-layout-standard {
+  padding: 48px 54px;
+}
+
+.cv-layout-sidebar {
+  display: grid;
+  grid-template-columns: 245px 1fr;
+  min-height: 1123px;
+}
+
+.cv-sidebar {
+  background: var(--cv-accent);
+  color: white;
+  padding: 44px 23px;
+}
+
+.cv-main-content {
+  padding: 45px 35px;
+}
+
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.cv-full-name {
+  font-size: 34px;
+  line-height: 1.13;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: var(--cv-accent);
+}
+
+.cv-contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+  margin-top: 12px;
+  font-size: 10px;
+  color: #64748b;
+}
+
+.cv-section {
+  margin-top: 22px;
+}
+
+.cv-section-heading {
+  font-size: 13px !important;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 800;
+  color: var(--cv-accent);
+  border-bottom: 1px solid #dce3eb;
+  padding-bottom: 7px;
+  margin: 0 0 12px !important;
+}
+
+.cv-section p {
+  font-size: 11px;
+  line-height: 1.65;
+  margin: 4px 0;
+}
+
+.cv-entry {
+  margin: 0 0 14px;
+  break-inside: avoid;
+}
+
+.cv-entry-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.cv-entry-top strong {
+  font-size: 12px;
+}
+
+.cv-entry-top small {
+  font-size: 10px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.cv-skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.cv-skill-tags span {
+  font-size: 10px;
+  padding: 5px 9px;
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.cv-profile-photo {
+  height: 88px;
+  width: 88px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cv-photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e2e8f0;
+  color: #475569;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+
+/* =========================================
+   6. SIDEBAR CV TEMPLATE STYLES
+========================================= */
+
+.cv-layout-sidebar .cv-header {
+  display: block;
+}
+
+.cv-layout-sidebar .cv-full-name {
+  color: white;
+  font-size: 27px;
+  margin-top: 14px;
+}
+
+.cv-layout-sidebar .cv-contact-details {
+  display: block;
+  color: #e2e8f0;
+  overflow-wrap: anywhere;
+}
+
+.cv-layout-sidebar .cv-contact-details span {
+  display: block;
+  margin-top: 7px;
+}
+
+.cv-layout-sidebar .cv-section-heading {
+  color: white;
+  border-color: #ffffff60;
+}
+
+.cv-layout-sidebar .cv-skill-tags span {
+  background: #ffffff24;
+  color: white;
+}
+
+.cv-layout-sidebar .cv-section p {
+  color: white;
+}
+
+
+/* =========================================
+   7. INDIVIDUAL CV TEMPLATE DESIGNS
+========================================= */
+
+/* Modern */
+
+.cv-modern {
+  border-top: 12px solid var(--cv-accent);
+}
+
+
+/* Executive */
+
+.cv-executive .cv-header {
+  background: #eff3f9;
+  padding: 25px;
+  margin: -48px -54px 26px;
+}
+
+.cv-executive .cv-full-name {
+  letter-spacing: .04em;
+}
+
+
+/* Skyline */
+
+.cv-skyline .cv-header {
+  border-left: 8px solid var(--cv-accent);
+  padding-left: 22px;
+}
+
+.cv-skyline .cv-section-heading {
+  border-bottom: 2px solid var(--cv-accent);
+}
+
+
+/* Classic and Heritage */
+
+.cv-classic .cv-header,
+.cv-heritage .cv-header {
+  display: block;
+  text-align: center;
+}
+
+.cv-classic .cv-contact-details,
+.cv-heritage .cv-contact-details {
+  justify-content: center;
+}
+
+.cv-classic .cv-full-name {
+  color: #24304d;
+  font-weight: 600;
+}
+
+.cv-heritage .cv-full-name {
+  color: #713f12;
+  font-weight: 500;
+  letter-spacing: .07em;
+}
+
+.cv-heritage .cv-section-heading {
+  border-bottom: 2px double #713f12;
+}
+
+
+/* Coral */
+
+.cv-coral .cv-sidebar {
+  background: #e11d48;
+}
+
+.cv-coral .cv-section-heading {
+  letter-spacing: .15em;
+}
+
+
+/* Slate */
+
+.cv-slate .cv-sidebar {
+  background: #334155;
+}
+
+
+/* Emerald */
+
+.cv-emerald .cv-sidebar {
+  background: #047857;
+}
+
+
+/* Portrait */
+
+.cv-portrait .cv-header {
+  flex-direction: column;
+  text-align: center;
+}
+
+.cv-portrait .cv-contact-details {
+  justify-content: center;
+}
+
+
+/* Minimal and ATS */
+
+.cv-minimal .cv-section-heading,
+.cv-ats-essential .cv-section-heading,
+.cv-ats-pro .cv-section-heading {
+  color: #111827;
+  border-color: #9ca3af;
+}
+
+.cv-minimal .cv-full-name,
+.cv-ats-essential .cv-full-name,
+.cv-ats-pro .cv-full-name {
+  color: #111827;
+}
+
+.cv-ats-essential .cv-header {
+  border-bottom: 2px solid #111827;
+  padding-bottom: 20px;
+}
+
+.cv-ats-pro .cv-section-heading {
+  border-bottom: 2px solid #374151;
+}
+
+.cv-ats-pro .cv-full-name {
+  font-size: 38px;
+}
+
+
+/* =========================================
+   8. SIDEBAR CV TEXT COLOR CORRECTIONS
+========================================= */
+
+.cv-layout-sidebar .cv-main-content {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.cv-layout-sidebar
+.cv-main-content
+.cv-section-heading {
+  color: var(--cv-accent);
+  border-bottom: 1px solid #dce3eb;
+}
+
+.cv-layout-sidebar
+.cv-main-content
+.cv-section p {
+  color: #334155;
+}
+
+.cv-layout-sidebar
+.cv-main-content
+.cv-entry strong {
+  color: #0f172a;
+}
+
+.cv-layout-sidebar
+.cv-main-content
+.cv-entry small {
+  color: #64748b;
+}
+
+.cv-layout-sidebar
+.cv-main-content
+.cv-skill-tags span {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.cv-layout-sidebar
+.cv-sidebar
+.cv-section-heading {
+  color: #ffffff;
+  border-color: #ffffff60;
+}
+
+.cv-layout-sidebar
+.cv-sidebar
+.cv-section p {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   9. WORKSPACE LIGHT MODE
+========================================= */
+
+.cv-workspace,
+.cv-workspace-main {
+  background-color: #f8faff;
+  color: #17243d;
+}
+
+.cv-workspace-title {
+  color: #0f172a;
+}
+
+.cv-workspace-subtitle {
+  color: #64748b;
+}
+
+
+/* =========================================
+   10. APPLICATION SIDEBAR LIGHT MODE
+========================================= */
+
+.cv-app-sidebar {
+  background-color: #ffffff;
+  color: #17243d;
+  border-color: #f1f5f9;
+}
+
+.cv-sidebar-label {
+  color: #94a3b8;
+}
+
+.cv-nav-link {
+  color: #64748b;
+}
+
+.cv-nav-link:hover {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.cv-nav-active,
+.cv-nav-active:hover {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
+.cv-sidebar-footer {
+  border-color: #e2e8f0;
+}
+
+.cv-user-avatar {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.cv-user-name {
+  color: #17243d;
+}
+
+.cv-mobile-menu {
+  background-color: #ffffff;
+  color: #17243d;
+}
+
+
+/* =========================================
+   11. DARK MODE GLOBAL COLORS
+========================================= */
+
+html.cv-dark {
+  color-scheme: dark;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+html.cv-dark body,
+html.cv-dark #root {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+
+/* =========================================
+   12. DARK MODE WORKSPACE
+========================================= */
+
+html.cv-dark .cv-workspace,
+html.cv-dark .cv-workspace-main {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+html.cv-dark .cv-workspace-title {
+  color: #f1f5f9;
+}
+
+html.cv-dark .cv-workspace-subtitle {
+  color: #94a3b8;
+}
+
+
+/* Additional workspace backgrounds */
+
+html.cv-dark .bg-\[\#f8faff\],
+html.cv-dark .bg-\[\#f7f9fd\] {
+  background-color: #0f172a;
+}
+
+
+/* =========================================
+   13. DARK MODE PANELS AND BACKGROUNDS
+========================================= */
+
+/* Exclude printable CVs and thumbnails */
+
+html.cv-dark .panel:not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+),
+html.cv-dark .bg-white:not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview),
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+) {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border-color: #334155;
+}
+
+html.cv-dark .panel {
+  box-shadow: none;
+}
+
+html.cv-dark .bg-slate-50:not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+),
+html.cv-dark .bg-slate-100:not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+) {
+  background-color: #0f172a;
+}
+
+html.cv-dark .bg-slate-200:not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+) {
+  background-color: #334155;
+}
+
+html.cv-dark .bg-blue-50:not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+) {
+  background-color: #172554;
+}
+
+html.cv-dark .bg-blue-100:not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+) {
+  background-color: #1e3a8a;
+}
+
+html.cv-dark .bg-blue-50\/40 {
+  background-color: #172554;
+}
+
+
+/* =========================================
+   14. DARK MODE TEXT COLORS
+========================================= */
+
+html.cv-dark :is(
+  .text-slate-900,
+  .text-slate-800,
+  .text-slate-700,
+  .text-gray-900,
+  .text-gray-800
+):not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+) {
+  color: #f1f5f9;
+}
+
+html.cv-dark :is(
+  .text-slate-600,
+  .text-slate-500,
+  .text-slate-400,
+  .text-gray-600,
+  .text-gray-500
+):not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+) {
+  color: #94a3b8;
+}
+
+html.cv-dark :is(
+  .text-blue-700,
+  .text-blue-600,
+  .text-blue-500
+):not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+) {
+  color: #93c5fd;
+}
+
+html.cv-dark .label {
+  color: #cbd5e1;
+}
+
+
+/* =========================================
+   15. DARK MODE BORDERS
+========================================= */
+
+html.cv-dark :is(
+  .border,
+  .border-b,
+  .border-t,
+  .border-r,
+  .border-slate-200,
+  .border-slate-100,
+  .border-gray-200
+):not(
+  :is(.cv-template, .resume-sheet, .cv-mini-preview),
+  :is(.cv-template, .resume-sheet, .cv-mini-preview) *
+) {
+  border-color: #334155;
+}
+
+html.cv-dark .border-blue-200 {
+  border-color: #3b82f6;
+}
+
+html.cv-dark .border-blue-600 {
+  border-color: #2563eb;
+}
+
+
+/* =========================================
+   16. DARK MODE INPUT FIELDS
+========================================= */
+
+html.cv-dark .field {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+html.cv-dark .field::placeholder {
+  color: #94a3b8;
+}
+
+html.cv-dark input:focus,
+html.cv-dark textarea:focus,
+html.cv-dark select:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px #1e3a8a;
+}
+
+html.cv-dark select option {
+  background-color: #1e293b;
+  color: #f1f5f9;
+}
+
+
+/* =========================================
+   17. DARK MODE BUTTONS
+========================================= */
+
+html.cv-dark .btn-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+html.cv-dark .btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+html.cv-dark .btn-outline {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+html.cv-dark .btn-outline:hover {
+  background-color: #334155;
+  color: #93c5fd;
+  border-color: #60a5fa;
+}
+
+html.cv-dark .hover\:bg-slate-50:hover {
+  background-color: #334155;
+}
+
+html.cv-dark .hover\:bg-blue-50:hover {
+  background-color: #1e3a8a;
+}
+
+html.cv-dark .hover\:text-slate-800:hover {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   18. DARK MODE APPLICATION SIDEBAR
+========================================= */
+
+html.cv-dark .cv-app-sidebar {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border-color: #334155;
+}
+
+html.cv-dark .cv-sidebar-label {
+  color: #94a3b8;
+}
+
+html.cv-dark .cv-nav-link {
+  color: #cbd5e1;
+}
+
+html.cv-dark .cv-nav-link:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+html.cv-dark .cv-nav-active,
+html.cv-dark .cv-nav-active:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+html.cv-dark .cv-sidebar-footer {
+  border-color: #334155;
+}
+
+html.cv-dark .cv-user-avatar {
+  background-color: #1e40af;
+  color: #dbeafe;
+}
+
+html.cv-dark .cv-user-name {
+  color: #f1f5f9;
+}
+
+html.cv-dark .cv-mobile-menu {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
+
+/* =========================================
+   19. PRESERVE CV THUMBNAIL COLORS
+========================================= */
+
+html.cv-dark .cv-mini-preview {
+  background-color: #ffffff;
+  color: #17243d;
+  border-color: #e2e8f0;
+  color-scheme: light;
+}
+
+html.cv-dark .cv-mini-preview .bg-white {
+  background-color: #ffffff;
+}
+
+html.cv-dark .cv-mini-preview .bg-slate-200 {
+  background-color: #e2e8f0;
+}
+
+html.cv-dark .cv-mini-preview .text-slate-400 {
+  color: #94a3b8;
+}
+
+html.cv-dark .cv-mini-preview .text-slate-600 {
+  color: #475569;
+}
+
+
+/* =========================================
+   20. PRESERVE PRINTABLE CV COLORS
+========================================= */
+
+html.cv-dark .cv-template {
+  background-color: #ffffff;
+  color: #1e293b;
+  color-scheme: light;
+}
+
+html.cv-dark .resume-sheet {
+  background-color: #ffffff;
+  color: #18233a;
+  color-scheme: light;
+}
+
+html.cv-dark .cv-pdf-export-host {
+  background-color: #ffffff;
+  color: #1e293b;
+  color-scheme: light;
+}
+
+
+/* =========================================
+   21. PRINT STYLES
+========================================= */
+
+@media print {
+
+  html,
+  html.cv-dark,
+  body,
+  html.cv-dark body,
+  html.cv-dark #root {
+    background: white !important;
+    color: #1e293b;
+    color-scheme: light;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .cv-template {
+    box-shadow: none !important;
+    break-inside: auto;
+  }
+
+  .cv-entry,
+  .cv-section-heading {
+    break-inside: avoid;
+  }
+
+  .resume-sheet {
+    box-shadow: none !important;
+  }
+
+}
+
+/* =========================================
+   22. COMPACT WORKSPACE STYLES
+========================================= */
+
+@media screen {
+
+  /* MAIN WORKSPACE PADDING */
+
+  html.cv-compact .cv-workspace-main {
+    padding: 16px;
+    padding-top: 72px;
+  }
+
+
+  /* DESKTOP WORKSPACE PADDING */
+
+  @media (min-width: 768px) {
+
+    html.cv-compact .cv-workspace-main {
+      padding: 20px;
+    }
+
+  }
+
+
+  /* PAGE HEADER SPACING */
+
+  html.cv-compact .cv-workspace-main .mb-8 {
+    margin-bottom: 16px;
+  }
+
+  html.cv-compact .cv-workspace-title {
+    font-size: 26px;
+    line-height: 1.25;
+  }
+
+  html.cv-compact .cv-workspace-subtitle {
+    margin-top: 4px;
+  }
+
+
+  /* REDUCE PANEL PADDING */
+
+  html.cv-compact .panel:not(
+    :is(
+      .cv-template,
+      .resume-sheet,
+      .cv-mini-preview,
+      .cv-pdf-export-host
+    ),
+    :is(
+      .cv-template,
+      .resume-sheet,
+      .cv-mini-preview,
+      .cv-pdf-export-host
+    ) *
+  ) {
+    padding: 16px;
+  }
+
+
+  /* REDUCE LARGE CONTENT GAPS */
+
+  html.cv-compact :is(
+    .gap-8,
+    .gap-6
+  ):not(
+    :is(
+      .cv-template,
+      .resume-sheet,
+      .cv-mini-preview,
+      .cv-pdf-export-host
+    ),
+    :is(
+      .cv-template,
+      .resume-sheet,
+      .cv-mini-preview,
+      .cv-pdf-export-host
+    ) *
+  ) {
+    gap: 12px;
+  }
+
+
+  html.cv-compact .gap-4:not(
+    :is(
+      .cv-template,
+      .resume-sheet,
+      .cv-mini-preview,
+      .cv-pdf-export-host
+    ),
+    :is(
+      .cv-template,
+      .resume-sheet,
+      .cv-mini-preview,
+      .cv-pdf-export-host
+    ) *
+  ) {
+    gap: 10px;
+  }
+
+
+  /* REDUCE VERTICAL SECTION SPACING */
+
+  html.cv-compact :is(
+    .space-y-8,
+    .space-y-6
+  ):not(
+    :is(
+      .cv-template,
+      .resume-sheet,
+      .cv-mini-preview,
+      .cv-pdf-export-host
+    ),
+    :is(
+      .cv-template,
+      .resume-sheet,
+      .cv-mini-preview,
+      .cv-pdf-export-host
+    ) *
+  ) > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+
+
+  html.cv-compact .space-y-4:not(
+    :is(
+      .cv-template,
+      .resume-sheet,
+      .cv-mini-preview,
+      .cv-pdf-export-host
+    ),
+    :is(
+      .cv-template,
+      .resume-sheet,
+      .cv-mini-preview,
+      .cv-pdf-export-host
+    ) *
+  ) > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+
+  /* COMPACT FORM FIELDS */
+
+  html.cv-compact .field {
+    padding: 8px 12px;
+    min-height: 38px;
+  }
+
+  html.cv-compact .label {
+    margin-bottom: 5px;
+  }
+
+  html.cv-compact textarea.field {
+    min-height: 90px;
+  }
+
+
+  /* COMPACT BUTTONS */
+
+  html.cv-compact .btn-primary,
+  html.cv-compact .btn-outline {
+    padding: 9px 16px;
+    min-height: 40px;
+  }
+
+
+  /* COMPACT APPLICATION SIDEBAR */
+
+  html.cv-compact .cv-nav-link {
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+
+  html.cv-compact .cv-sidebar-label {
+    margin-bottom: 6px;
+  }
+
+  html.cv-compact .cv-sidebar-footer {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+
+  /* COMPACT SETTINGS THEME BUTTONS */
+
+  html.cv-compact button[aria-pressed].p-5 {
+    padding: 12px;
+    gap: 8px;
+  }
+
+
+  /* COMPACT SETTINGS SECTION DIVIDERS */
+
+  html.cv-compact .cv-workspace-main .pt-5 {
+    padding-top: 12px;
+  }
+
+}
